@@ -219,6 +219,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 
 /* ai section */
+.about-more{color:var(--muted);font-size:17px;line-height:1.6;margin-top:18px;max-width:52ch}
 .ai{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
 @media (max-width:1023px){.ai{grid-template-columns:1fr;gap:36px}}
 .ai .statement{font-size:clamp(20px,2.1vw,26px);line-height:1.4;letter-spacing:-.015em;font-weight:500;margin-top:18px}
@@ -427,7 +428,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="wrap about" style="padding-top:88px">
       <div>
         <h2 class="sec-title">A bit about me</h2>
-        <p class="statement">I'm from Chicago, and I'm a problem solver at heart. I don't always know the answer right away, but I take the time to find <em>the most efficient way through</em>, then I build it. I love efficiency, which is why so many of my side projects are productivity apps.</p>
+        <p class="statement">I'm from Chicago, and I'm a problem solver at heart. I don't always know the answer right away, but I take the time to find <em>the most efficient way through</em>, then I build it.</p>
+        <p class="about-more">I love to learn. I'm constantly picking up new technology and new skills to be a better consultant and professional. I also love efficiency, which is why so many of my side projects are productivity apps.</p>
       </div>
       <div class="likes">
         <div><h3>Running and workouts</h3><p>Anything that gets me moving. It's where I do my best thinking.</p></div>
@@ -506,7 +508,7 @@ try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}});
   document.querySelectorAll(".cell").forEach(function(c){c.addEventListener("pointermove",function(ev){var r=c.getBoundingClientRect();c.style.setProperty("--x",(ev.clientX-r.left)+"px");c.style.setProperty("--y",(ev.clientY-r.top)+"px")})});
   if(reduce)return;
   // reveal on scroll
-  var targets=[].slice.call(document.querySelectorAll("section .sec-title, section .sec-lede, .client-tag, .bento .cell, .numbers > div, .build, .shot, .apps-more > div, .sk-groups > div, .step, .paper, .ai-group, .ai .statement, .ai-stats > div, .likes > div, .about .statement, .xrow, .contact h2, .contact .row"));
+  var targets=[].slice.call(document.querySelectorAll("section .sec-title, section .sec-lede, .client-tag, .bento .cell, .numbers > div, .build, .shot, .apps-more > div, .sk-groups > div, .step, .paper, .ai-group, .ai .statement, .ai-stats > div, .likes > div, .about .statement, .about-more, .xrow, .contact h2, .contact .row"));
   var groups=new Map();
   targets.forEach(function(el){var parent=el.parentElement;var i=groups.get(parent)||0;groups.set(parent,i+1);el.style.setProperty("--delay",Math.min(i,6)*0.07+"s");el.classList.add("reveal")});
   if("IntersectionObserver" in window){
