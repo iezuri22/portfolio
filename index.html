@@ -217,6 +217,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .paper:hover{transform:rotate(0) translateY(-4px)}
 .paper img{width:100%}
 
+
+/* ai section */
+.ai{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+@media (max-width:1023px){.ai{grid-template-columns:1fr;gap:36px}}
+.ai .statement{font-size:clamp(20px,2.1vw,26px);line-height:1.4;letter-spacing:-.015em;font-weight:500;margin-top:18px}
+.ai-stats{display:flex;gap:40px;margin-top:32px;flex-wrap:wrap}
+.ai-stats b{display:block;font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1}
+.ai-stats span{display:block;color:var(--muted);font-size:14.5px;margin-top:8px;max-width:16ch}
+.ai-groups{display:grid;gap:0}
+.ai-group{padding-block:22px;border-top:1px solid var(--line)}
+.ai-group:first-child{border-top:0;padding-top:4px}
+.ai-group h3{font-size:19px;letter-spacing:-.015em;color:var(--accent)}
+.ai-group p{color:var(--muted);margin-top:8px;font-size:16px}
+.ai-group ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.ai-group li{position:relative;padding-left:18px;font-size:15.5px;color:var(--fg)}
+.ai-group li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--accent)}
+
 /* motion layer */
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee .track{display:flex;gap:56px;width:max-content;align-items:center;color:var(--faint)}
@@ -258,6 +275,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <a class="name" href="#top">Ifeanyi Ezurike</a>
     <a class="link" href="#enterprise">Delivery</a>
     <a class="link" href="#client">Client work</a>
+    <a class="link" href="#ai">AI</a>
     <a class="link" href="#resume">Resume</a>
     <a class="link" href="#about">About</a>
     <a class="btn btn-primary" href="#contact">Email me</a>
@@ -343,6 +361,44 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       </div>
       <p class="vt-note">Screens from the live platform, shown without client data.</p>
+    </div>
+  </section>
+
+  <section id="ai" class="ent">
+    <div class="wrap ai">
+      <div class="ai-lead">
+        <h2 class="sec-title">How I use AI</h2>
+        <p class="statement">AI is part of how I work every day. I use it to build software faster, I build it into products where it saves people real time, and I put guardrails around it so a person stays in control.</p>
+        <div class="ai-stats">
+          <div><b>145</b><span>screens shipped on one platform</span></div>
+          <div><b>3</b><span>apps on the App Store</span></div>
+        </div>
+      </div>
+      <div class="ai-groups">
+        <div class="ai-group">
+          <h3>To build faster</h3>
+          <p>I write the requirements, direct AI coding agents to build them, then review and test every screen myself. That's how one person shipped a full operations platform and three App Store apps.</p>
+        </div>
+        <div class="ai-group">
+          <h3>Inside the products</h3>
+          <ul>
+            <li>Turns consultants' weekly updates into a monthly delivery report for directors.</li>
+            <li>Reads a business card and writes the follow-up in the sender's own voice, learned from their sent mail.</li>
+            <li>Turns meeting notes into tasks with owners and due dates.</li>
+            <li>Answers the agency's phone when the owner can't, and sends a summary of every call.</li>
+            <li>Sorts the inbox, flags what needs a reply and drafts one.</li>
+          </ul>
+        </div>
+        <div class="ai-group">
+          <h3>With guardrails</h3>
+          <ul>
+            <li>Nothing goes out without a person approving it. Drafts wait in a review queue with a daily cap.</li>
+            <li>Disclosures built in where the law requires them, like Illinois rules on AI in hiring.</li>
+            <li>A fast, low-cost model for sorting and a stronger one for writing, so costs stay predictable.</li>
+            <li>A plain fallback when the AI service is down, so the work never stops.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -450,7 +506,7 @@ try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}});
   document.querySelectorAll(".cell").forEach(function(c){c.addEventListener("pointermove",function(ev){var r=c.getBoundingClientRect();c.style.setProperty("--x",(ev.clientX-r.left)+"px");c.style.setProperty("--y",(ev.clientY-r.top)+"px")})});
   if(reduce)return;
   // reveal on scroll
-  var targets=[].slice.call(document.querySelectorAll("section .sec-title, section .sec-lede, .client-tag, .bento .cell, .numbers > div, .build, .shot, .apps-more > div, .sk-groups > div, .step, .paper, .likes > div, .about .statement, .xrow, .contact h2, .contact .row"));
+  var targets=[].slice.call(document.querySelectorAll("section .sec-title, section .sec-lede, .client-tag, .bento .cell, .numbers > div, .build, .shot, .apps-more > div, .sk-groups > div, .step, .paper, .ai-group, .ai .statement, .ai-stats > div, .likes > div, .about .statement, .xrow, .contact h2, .contact .row"));
   var groups=new Map();
   targets.forEach(function(el){var parent=el.parentElement;var i=groups.get(parent)||0;groups.set(parent,i+1);el.style.setProperty("--delay",Math.min(i,6)*0.07+"s");el.classList.add("reveal")});
   if("IntersectionObserver" in window){
